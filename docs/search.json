@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "ModellingNaturalHistory.html#challenge",
+    "href": "ModellingNaturalHistory.html#challenge",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Challenge",
+    "text": "Challenge\n\n\nWant: 20 collections per species per seed transfer zone\nNative species declining - wildfires, habitat degradation\nMany populations needed as drought, pests, etc. vary each year\nOccurrence data often biased against BLM\n\n\n\n\n\n\nJohanna Steensma\n\n\n\n\nOn most BLM administered land, we simply have difficulty finding enough populations to collect from. Even populations of once wide-ranging abundant species can be difficult to find in the right condition for a crew to collect from. SOS official guidance is that crews can hope to make collections from 1/4 populations which are large enough, the other 3 are often lost to pests or other eccentricities of the year.\nWhile some good occurrence data exist, once you really zoom in - you realize it’s pretty sparse. For these reasons we need to get crews lot’s of good ideas on where to go scout for their target species."
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#solution",
+    "href": "ModellingNaturalHistory.html#solution",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Solution",
+    "text": "Solution\n\n\nModel Call\n\n\\[\\text{Species (Pres.|Abs.) ~}\\\\ \\text{geology * topography * soils * vegetation * climate}\\]\n\n\n\nSpecies Distribution Modelling (SDM’s), ENM’s etc.\nPredict the probability of suitable habitat\n\nModelled 353 taxa at 90m resolution\n\n\n\n\n\n\n\n\n\n\nWorkflow\n\n\n\n\n\nIndependent Variables\n\n\n\n\n\n\n\n\n\nDescription\nSource\n\n\n\n\nMean Annual Air Temp. (BIO1)\nChelsa\n\n\nTemp. seasonality (BIO4)\nChelsa\n\n\nMax Temp. of Warmest Month (BIO5)\nChelsa\n\n\nMin Temp. of Coldest Month (BIO6)\nChelsa\n\n\nMean Temp. of Warmest Quarter (BIO10)\nChelsa\n\n\nMean Temp. of Coldest Quarter (BIO11)\nChelsa\n\n\nMean annual precip. (BIO12)\nChelsa\n\n\nPrecip. of Warmest Quarter (BIO18)\nChelsa\n\n\nPrecip. of Coldest Quarter (BIO19)\nChelsa\n\n\nMean Monthly vapour pressure deficit (vpd)\nChelsa\n\n\nHeat accumulation of degree-days &gt; 5C (gdd5)\nChelsa\n\n\nFirst growing degree day &gt; 5C (gdgfgd5)\nChelsa\n\n\nNumber of degree-days &gt; 5C (ngd5)\nChelsa\n\n\nHeat accumulation of degree-days &gt; 10C (gdd10)\nChelsa\n\n\nFirst growing degree day &gt; 10C (gdgfgd10)\nChelsa\n\n\nNumber of Degree-days &gt; 10C (ngd10)\nChelsa\n\n\nMean monthly near surface humidity (hurs)\nChelsa\n\n\nNumber of Days with Snow Cover(scd)\nChelsa\n\n\nAnnual Snow Water Equivalent (swe)\nChelsa\n\n\nPercent Herbaceous Vegetation\nEarthEnv\n\n\nPercent Shrub Cover\nEarthEnv\n\n\nPercent Tree Cover\nEarthEnv\n\n\nSoil Depth to Bedrock (R Horizon)\nSoilGrids\n\n\nSoil organic carbon (Tonnes / ha)\nSoilGrids\n\n\nSoil Surface (0-5 cm) pH in H2O\nSoilGrids\n\n\nSoil 30-60 cm pH in H2O\nSoilGrids\n\n\nSoil Surface (0-5 cm) % clay\nSoilGrids\n\n\nSoil 5-15 cm % clay\nSoilGrids\n\n\nSoil Surface (0-5 cm) % silt\nSoilGrids\n\n\nSoil 5-15 cm % silt\nSoilGrids\n\n\nSoil 15-30 cm % silt\nSoilGrids\n\n\nSoil Surface (0-5 cm) % sand\nSoilGrids\n\n\nSoil 5-15 cm % sand\nSoilGrids\n\n\nSoil 15-30 cm % sand\nSoilGrids\n\n\nSoil Surface (0-5 cm) coarse fragments\nSoilGrids\n\n\nSoil (30-60 cm) coarse fragments\nSoilGrids\n\n\nSoil Salinity\nSoilGrids\n\n\nElevation\nMERIT - DEM\n\n\nSlope\nGeomorpho90\n\n\nAspect\nGeomorpho90\n\n\nTopographic Position Index\nGeomorpho90\n\n\nCompound Topographic Index\nterra\n\n\nTopographic Roughness Index\nterra\n\n\nHuman Influence Index\nNASA Earth Data\n\n\n\n\n\n\n\nDependent Variables\n\n\n\n\n\nSource\nNo. Records\n\n\n\n\nHerbaria\n245,048\n\n\niNaturalist\n171,981\n\n\nAIM (BLM)\n195,544\n\n\nVegBank\n55,124\n\n\nFIA (USFS)\n1,521\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur solution is to communicate the plausible range of individual species to our young collectors. We accomplish this by using Species Distribution Models - often also called Environmental Niche Models, which can be readily interpreted by crew leads using a GIS.\nThe SDMs we will discuss are constructed from a subset of generally 10-20 predictor variables selected from a raster stack of 44. We model these SDM’s using random forests, which are a very very fast algorithm, and provide reproducible results. The training data come from a variety of musuem and government sources."
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#implementation",
+    "href": "ModellingNaturalHistory.html#implementation",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Implementation",
+    "text": "Implementation\n\n\nCrew Leads receive output raster data (two formats)\n\nMasked to &gt;70% prob. of suitable habitat\nRaw probability predictions\n\n\nAlso receive raw training presences\n\nVisually review data while preparing hitches"
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#results",
+    "href": "ModellingNaturalHistory.html#results",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Results",
+    "text": "Results"
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#challenge-1",
+    "href": "ModellingNaturalHistory.html#challenge-1",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Challenge",
+    "text": "Challenge\n\n\nCrews spend 15-25% of work driving\n\nLeads often overwhelmed with number (gen. 40-80) of target species\n\nFinite windows for scouting and collecting\n\nFruit develops simultaneously\n\n\n\n\n\n\n\nKatie Peel\n\n\n\n\nSo time is really of the essence for our crews. To be blunt, most of our seed matures and disperses in a couple batches, once in June to early July, and again in September - if you are in a monsoonal area. It is imperative that crews have found many populations before this happens, and hence that they prioritze their scouting efforts. Searching for the earliest species as soon as possible, and holding off on the later material."
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#solution-1",
+    "href": "ModellingNaturalHistory.html#solution-1",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Solution",
+    "text": "Solution\n\n\nModel Call\n\n\\[\\text{GAM(Flowering (0|1) ~} \\text{ DOY *}\\\\ \\text{GDD * VPD * BIO10 * BIO14 * Soil Bulk Density * CTI * } \\\\ \\text{corr. = corARMA(~ 1|year) * corExp(~ Lat.|Long.))} \\]\n\n\n\nGeneralized Additive Models\ndescribe the onset, shape, and cessation of a phenophase via wiggles\nModelled ca. 270 species at 250m resolution\n\n\n\n\n\n\n\n\n\nWorkflow\n\n\n\n\n\nIndependent Variables\n\n\n\n\n\n\n\n\n\nDescription\nSource\n\n\n\n\nMean Temp. of Warmest Quarter (BIO10)\nChelsa\n\n\nPrecipitation of driest month (BIO14)\nChelsa\n\n\nMean monthly vapour pressure deficit (vpd)\nChelsa\n\n\nHeat accumulation of degree-days &gt; 5C (gdd5)\nChelsa\n\n\nFirst growing degree day &gt; 5C (gdgfgd5)\nChelsa\n\n\nNumber of degree-days &gt; 5C (ngd5)\nChelsa\n\n\nHeat accumulation of degree-days &gt; 10C (gdd10)\nChelsa\n\n\nFirst growing degree day &gt; 10C (gdgfgd10)\nChelsa\n\n\nNumber of Degree-days &gt; 10C (ngd10)\nChelsa\n\n\nSoil Bulk Density\nSoilGrids\n\n\nCompound Topographic Index\nterra\n\n\n\n\n\n\n\nDependent Variables\n\n\n\n\n\nSource\nNo. Records\n\n\n\n\nHerbaria\n64,529\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis year the only phenophase we modelled was flowering, but an identical approach is suitable for fruiting or other phases."
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#implementation-1",
+    "href": "ModellingNaturalHistory.html#implementation-1",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Implementation",
+    "text": "Implementation\n\n\nInternally, GAMs are predicted into space\nThese are subset to initiation and end dates\nValues are extracted from relevant layers for a spreadsheet"
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#results-1",
+    "href": "ModellingNaturalHistory.html#results-1",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Results",
+    "text": "Results\n\n\n\n\n\n\n\n\n\n“all models are wrong, some are useful” how do you want to be wrong?\n\n\n\n\nFew absence records collected; highly un-balanced data set"
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#challenge-2",
+    "href": "ModellingNaturalHistory.html#challenge-2",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Challenge",
+    "text": "Challenge\n\n\nSpecies Distribution Models only identify areas with theoretically suitable habitat\nDo not account for migration\n\nModeled habitat != occupied habitat\n\n\n\n\n\n\nJohanna Steensma\n\n\n\n\nA species distribution model produces one and one metric only - the probability of suitable habitat BASED upon the dependent observations and independent variables you feed in. It suffers from both bias, especially due to where training records are located, and variance - associated with noise on the input data and over fitting of parameters. Our crews are focused on finding populations for collections - not mapping new populations ala a conservation focus. We want to get them there.\nNotably then, we want crews to go where they have very high chances of being successful. The discrepancy between the name “species DISTRIBUTION model” and what’s it actually offers have been noted for roughly 20 years ago. In my experience most critiques of SDM’s arise from the mismatch between the nomenclature, and users expectations - and an SDM predicting suitable habitat very far from any currently occupied habitat."
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#solution-2",
+    "href": "ModellingNaturalHistory.html#solution-2",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Solution",
+    "text": "Solution\n\n\nReprocess the output of SDM’s to identify clusters of suitable habitat\n\nIdentify populated patches\n\nRank the connections and classify distance from populated to un-populated patches\n\n\n\n\n\n\n\n\n\nScoring Schema\n\n\n\nRanks for Contiguous Patches\n\n\nConnection\nNo. Connections\nRank\n\n\n\n\n1st\n&gt;= 2\n2\n\n\n1st\n1\n3\n\n\n2nd\n&gt;= 3\n4\n\n\n2nd\n&lt;= 2\n5\n\n\n3rd\n&gt;= 4\n6\n\n\n3rd\n&lt;= 3\n7\n\n\n\n\n\nRanks for non-contiguous patches,with occupied patches &lt; 5km away\n\n\nNo. Occupied Patches\nRank\n\n\n\n\n&gt;= 3\n8\n\n\n&lt;= 2\n9\n\n\n\n\n\n\n\n\nWorkflow"
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#implementation-2",
+    "href": "ModellingNaturalHistory.html#implementation-2",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Implementation",
+    "text": "Implementation\n\n\nCrew Leads receive output vector data of patch ranks\n\nhigher priority patches darker colors\n\n\nVisually review data while preparing hitches"
+  },
+  {
+    "objectID": "ModellingNaturalHistory.html#results-2",
+    "href": "ModellingNaturalHistory.html#results-2",
+    "title": "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity",
+    "section": "Results",
+    "text": "Results\n\n\nCurrent hydrologic basins data set is to coarse\n\n400% more pops found in R1 than expected by the number of them\n74% more pops found R1 then expected by area alone"
+  }
+]
