@@ -1,0 +1,495 @@
+---
+title: "Modelling Natural History to Increase Native Seed Collection Efficiency - Space, Time, and Connectivity"
+subtitle: "Natural Areas Conference"
+author: "Reed Clark Benkendorf"
+date: "2024-October-8"
+institute: "Senior Spatial Data Specialist & Senior Botanist"
+date-format: long
+format: 
+  revealjs:
+    theme: black
+    highlight: pygments
+    preview-links: auto
+    logo: ../images/CBG_Logos/NegauneeInstitute_CBG-Logo-FlowerMark.png
+    chalkboard: 
+      boardmarker-width: 5
+    reveal_options:
+      width: 1920
+      height: 1080
+css: custom.css
+editor: 
+  markdown: 
+    wrap: 72
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+        font-size: 1.5em;
+      }
+      </style>
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+# Background
+
+-   Remote Sensing, Citizen Science, Statistics, and Ecology\
+-   research projects focus on theory and shoot for the moon\
+-   West very large, lacking distribution data on most species\
+<br>
+-   What's needed for seed collection?\
+
+::: {.incremental} 
+- **Better knowledge of Natural History**
+::: 
+
+::: notes
+Lot's of absolutely amazing things are happening in ecology these days. 
+From the proliferation of Citizen Science initiatives to fancy fancy remote sensing, and amazing advances in statistics. 
+However, I generally feel that the developers of these things get carried away with testing these out on theoretical problems, whereas we have many real problems. 
+In particular, we've still much work to do in documenting basic natural history - a feat largely abandoned by the main stream 40 years ago. 
+
+Most all of my work is wrangling museum, government, and citizen science data to try and share natural history information with seed collectors - in quick, easy to access digital formats. 
+:::
+
+# SPACE
+
+<font size="6"> *"It is advisable to look from the tide pool to the stars
+and then back to the tide pool again."*\
+</font> <br> [John Steinbeck & Ed Ricketts]{style="float:right"}
+
+## Challenge 
+
+::: {style="float: left; width: 60%;"}
+-   Want: 20 collections per species per seed transfer zone
+-   Native species declining - wildfires, habitat degradation
+-   Many populations needed as drought, pests, etc. vary each year
+-   Occurrence data often biased against BLM
+:::
+
+::: {style="float: right; width: 40%;"}
+![Johanna Steensma](../images/MesaSteensma.jpg){
+  height=550
+  fig-align='right'
+  text-align='center'
+}
+:::
+
+::: notes
+On most BLM administered land, we simply have difficulty finding enough populations to collect from. 
+Even populations of once wide-ranging abundant species can be difficult to find in the right condition for a crew to collect from. 
+SOS official guidance is that crews can hope to make collections from 1/4 populations which are large enough, the other 3 are often lost to pests or other eccentricities of the year. 
+
+While some good occurrence data exist, once you really zoom in - you realize it's pretty sparse. 
+For these reasons we need to get crews lot's of good ideas on where to go scout for their target species. 
+::: 
+
+## Solution
+
+<details> 
+<summary>Model Call</summary>
+$$\text{Species (Pres.|Abs.) ~}\\ \text{geology * topography * soils * vegetation * climate}$$
+</details> 
+
+::: {style="float: left; width: 49%;"}
+- Species Distribution Modelling  (SDM's), ENM's etc. 
+- Predict the *probability* of suitable habitat  
+- Modelled 353 taxa at 90m resolution  
+:::
+
+
+::: {style="float: center; width: 2%;"}  
+:::
+
+::: {style="float: right; width: 49%;"}
+:::{.scrolling}
+<details> 
+<summary>Workflow</summary>
+![](../images/SDM_flowchart.png){fig-align="right"}
+</details> 
+
+<details> 
+<summary>Independent Variables</summary>
+<font size="2">
+
+|                       Description                       |        Source       |     
+| :-----------------------------------------------------: | :-----------------: |
+|              Mean Annual Air Temp. (BIO1)               |         Chelsa      |
+|               Temp. seasonality (BIO4)                  |         Chelsa      |
+|         Max Temp. of Warmest Month (BIO5)               |         Chelsa      |
+|         Min Temp. of Coldest Month (BIO6)               |         Chelsa      |
+|        Mean Temp. of Warmest Quarter (BIO10)            |         Chelsa      |
+|        Mean Temp. of Coldest Quarter (BIO11)            |         Chelsa      |
+|              Mean annual precip. (BIO12)                |         Chelsa      |
+|         Precip. of Warmest Quarter (BIO18)              |         Chelsa      |
+|        Precip. of Coldest Quarter (BIO19)               |         Chelsa      |
+|      Mean Monthly vapour pressure deficit (vpd)         |         Chelsa      |
+|     Heat accumulation of degree-days > 5C (gdd5)        |         Chelsa      |
+|         First growing degree day > 5C (gdgfgd5)         |         Chelsa      |
+|           Number of degree-days > 5C (ngd5)             |         Chelsa      |
+|    Heat accumulation of degree-days > 10C (gdd10)       |         Chelsa      |
+|         First growing degree day > 10C (gdgfgd10)       |         Chelsa      |
+|         Number of Degree-days > 10C (ngd10)             |         Chelsa      |
+|        Mean monthly near surface humidity (hurs)        |         Chelsa      |
+|            Number of Days with Snow Cover(scd)          |         Chelsa      |
+|            Annual Snow Water Equivalent (swe)           |         Chelsa      |
+|                Percent Herbaceous Vegetation            |         EarthEnv    |
+|                   Percent Shrub Cover                   |         EarthEnv    |
+|                   Percent Tree Cover                    |         EarthEnv    |
+|               Soil Depth to Bedrock (R Horizon)         |         SoilGrids   |
+|                Soil organic carbon (Tonnes / ha)        |         SoilGrids   |
+|                Soil Surface (0-5 cm) pH in H~2~O        |         SoilGrids   |
+|                   Soil 30-60 cm pH in H~2~O             |         SoilGrids   |
+|                Soil Surface (0-5 cm) % clay             |         SoilGrids   |
+|                     Soil 5-15 cm % clay                 |         SoilGrids   |
+|                Soil Surface (0-5 cm) % silt             |         SoilGrids   |
+|                    Soil 5-15 cm % silt                  |         SoilGrids   | 
+|                    Soil 15-30 cm % silt                 |         SoilGrids   |
+|                Soil Surface (0-5 cm) % sand             |         SoilGrids   |
+|                    Soil 5-15 cm % sand                  |         SoilGrids   |
+|                    Soil 15-30 cm % sand                 |         SoilGrids   |
+|           Soil Surface (0-5 cm) coarse fragments        |         SoilGrids   |
+|              Soil (30-60 cm) coarse fragments           |         SoilGrids   |
+|                       Soil Salinity                     |         SoilGrids   |
+|                         Elevation                       |        MERIT - DEM  |
+|                          Slope                          |        Geomorpho90  |
+|                          Aspect                         |        Geomorpho90  |
+|                  Topographic Position Index             |        Geomorpho90  |
+|                  Compound Topographic Index             |           terra     |
+|                  Topographic Roughness Index            |           terra     |
+|                   Human Influence Index                 |     NASA Earth Data |
+
+</font>
+</details> 
+
+<details> 
+<summary>Dependent Variables</summary>
+<font size="2">
+
+|        Source      | No. Records |    
+| :----------------: | :---------: |
+|     Herbaria       |  245,048    |     
+|   iNaturalist      |  171,981    |
+|    AIM (BLM)       |  195,544    |
+|     VegBank        |   55,124    |
+|    FIA (USFS)      |    1,521    |
+
+</font>
+</details>
+
+[![](../images/GithubLogoT.png){height=60 fig-align='right'}](https://github.com/sagesteppe/SDM_restorations)
+
+:::
+:::
+
+::: notes
+Our solution is to communicate the plausible range of individual species to our young collectors. 
+We accomplish this by using Species Distribution Models - often also called Environmental Niche Models, which can be readily interpreted by crew leads using a GIS. 
+
+The SDMs we will discuss are constructed from a subset of generally 10-20 predictor variables selected from a raster stack of 44. 
+We model these SDM's using random forests, which are a very very fast algorithm, and provide reproducible results. 
+The training data come from a variety of musuem and government sources. 
+:::
+
+## Implementation
+
+::: {style="float: left; width: 50%;"}
+- Crew Leads receive output raster data (two formats) 
+  - Masked to >70% prob. of suitable habitat 
+  - Raw probability predictions  
+- Also receive raw training presences  
+- Visually review data while preparing hitches  
+:::
+
+::: {style="float: right; width: 50%;"}
+![](../images/Suitability.resized.png){
+  height=600 
+  fig-align='right'
+}
+:::
+
+## Results
+::: {style="float: left; width: 49%;"}
+![](../images/Eval_metrics.png){
+  height=625 
+  fig-align="center"
+}
+:::
+
+::: {style="float: center; width: 2%;"}  
+:::
+
+::: {style="float: right; width: 49%;"}
+![](../images/leafplot-trans.png){
+  height=625
+  fig-align="center"
+}
+:::
+
+# TIME
+
+<font size="6"> *"The two most powerful warriors are time and patience"*
+</font> <br> [Leo Tolstoy]{style="float:right"}
+
+## Challenge
+::: {style="float: left; width: 60%;"}
+- Crews spend 15-25% of work driving  
+- Leads often overwhelmed with number (gen. 40-80) of target species  
+- Finite windows for scouting and collecting  
+- Fruit develops simultaneously   
+:::
+
+::: {style="float: right; width: 40%;"}
+![Katie Peel](../images/Driving.resized.png){
+  height=550 
+  fig-align='right'
+  text-align='center'
+}
+:::
+
+::: notes
+So time is really of the essence for our crews. 
+To be blunt, most of our seed matures and disperses in a couple batches, once in June to early July, and again in September - if you are in a monsoonal area. 
+It is imperative that crews have found many populations before this happens, and hence that they prioritze their scouting efforts. 
+Searching for the earliest species as soon as possible, and holding off on the later material. 
+::: 
+
+## Solution
+
+<details> 
+<summary>Model Call</summary>
+$$\text{GAM(Flowering (0|1) ~} \text{ DOY *}\\ \text{GDD * VPD * BIO10 * BIO14 * Soil Bulk Density * CTI * } \\ \text{corr. = corARMA(~ 1|year) * corExp(~ Lat.|Long.))} $$
+</details> 
+
+::: {style="float: left; width: 49%;"}
+-  **G**eneralized **A**dditive **M**odels 
+-  describe the onset, shape, and cessation of a phenophase via wiggles
+- Modelled ca. 270 species at 250m resolution 
+:::
+
+::: {style="float: center; width: 2%;"}
+:::
+
+::: {style="float: right; width: 49%;"}
+:::{.scrolling}
+<details> 
+<summary>Workflow</summary>
+![](../images/Phenology_flowchart){fig-align="right"}
+</details> 
+
+<details> 
+<summary>Independent Variables</summary>
+<font size="2">
+
+|                       Description                       |        Source       |     
+| :-----------------------------------------------------: | :-----------------: |
+|        Mean Temp. of Warmest Quarter (BIO10)            |         Chelsa      |
+|        Precipitation of driest month (BIO14)            |         Chelsa      |
+|      Mean monthly vapour pressure deficit (vpd)         |         Chelsa      |
+|     Heat accumulation of degree-days > 5C (gdd5)        |         Chelsa      |
+|         First growing degree day > 5C (gdgfgd5)         |         Chelsa      |
+|           Number of degree-days > 5C (ngd5)             |         Chelsa      |
+|    Heat accumulation of degree-days > 10C (gdd10)       |         Chelsa      |
+|         First growing degree day > 10C (gdgfgd10)       |         Chelsa      |
+|         Number of Degree-days > 10C (ngd10)             |         Chelsa      |
+|                   Soil Bulk Density                     |       SoilGrids     |
+|               Compound Topographic Index                |          terra      |
+
+</font>
+</details> 
+
+<details> 
+<summary>Dependent Variables</summary>
+<font size="2">
+
+|        Source      | No. Records |    
+| :----------------: | :---------: |
+|      Herbaria      |   64,529    |
+
+</font>
+</details>
+
+[![](../images/GithubLogoT.png){height=60  fig-align='right'}](https://github.com/sagesteppe/SeedPhenology)
+:::
+:::
+
+::: notes
+This year the only phenophase we modelled was flowering, but an identical approach is suitable for fruiting or other phases. 
+:::
+## Implementation
+
+::: {style="float: left; width: 50%;"}
+- Internally, GAMs are predicted into space 
+- These are subset to initiation and end dates
+- Values are extracted from relevant layers for a spreadsheet
+:::
+
+::: {style="float: right; width: 50%;"}
+![](../images/Phenology.png){
+  height=200 
+  fig-align="center"
+}
+
+![](../images/Flowering_spreadsheet.resized.png){
+  height=325 
+  fig-align="center"
+}
+:::
+
+## Results
+:::: {.columns .v-center-container}
+![](../images/CM-Phenology-trim.png){
+  height=375 
+  fig-align="center"
+}
+::::
+::: {style="float: left; width: 49%;"}
+- "*all models are wrong, some are useful*" *how* do you want to be wrong? 
+:::
+::: {style="float: right; width: 49%;"}
+- Few absence records collected; highly un-balanced data set 
+:::
+
+# CONNECTIVITY
+
+<font size="6"> *"In nature we never see anything isolated, but
+everything in connection with something else which is before it, beside
+it, under it and over it."*\
+</font> <br> [Johann Wolfgang von Goethe]{style="float:right"}
+
+## Challenge
+
+::: {style="float: left; width: 60%;"}
+- Species Distribution Models **only** identify areas with theoretically suitable habitat
+- Do not account for migration  
+- Modeled habitat != occupied habitat
+::: 
+
+::: {style="float: right; width: 40%;"}
+![Johanna Steensma](../images/BlackCanyonSteensma.jpg){
+  height=550 
+  fig-align='right'
+}
+:::
+
+::: notes
+A species distribution model produces one and one metric only - the probability of suitable habitat BASED upon the dependent observations and independent variables you feed in. 
+It suffers from both bias, especially due to where training records are located, and variance - associated with noise on the input data and over fitting of parameters. 
+Our crews are focused on finding populations for collections - not mapping new populations ala a conservation focus. 
+We want to get them *there*. 
+
+Notably then, we want crews to go where they have very high chances of being successful. 
+The discrepancy between the name "species DISTRIBUTION model" and what's it actually offers have been noted for roughly 20 years ago. 
+In my experience most critiques of SDM's arise from the mismatch between the nomenclature, and users expectations - and an SDM predicting suitable habitat very far from any currently occupied habitat.
+:::
+
+## Solution
+
+::: {style="float: left; width: 49%;"}
+- Reprocess the output of SDM's to identify clusters of suitable habitat  
+- Identify populated patches    
+- Rank the connections and classify distance from populated to un-populated patches    
+:::
+
+::: {style="float: center; width: 2%;"}  
+:::
+
+::: {style="float: right; width: 49%;"}  
+
+<details> 
+<summary>Scoring Schema</summary>
+<font size="2">
+
+|  Connection   |  No. Connections   |   Rank   | 
+| :-----------: | :----------------: | :------: | 
+|     1^st^     |        >= 2        |    2     | 
+|     1^st^     |         1          |    3     | 
+|     2^nd^     |        >= 3        |    4     | 
+|     2^nd^     |        <= 2        |    5     | 
+|     3^rd^     |        >= 4        |    6     | 
+|     3^rd^     |        <= 3        |    7     | 
+: Ranks for Contiguous Patches
+
+<br> 
+
+|  No. Occupied Patches   |   Rank   | 
+| :---------------------: | :------: | 
+|           >= 3          |    8     | 
+|           <= 2          |    9     | 
+: Ranks for non-contiguous patches,\n with occupied patches < 5km away
+
+</font>
+</details> 
+
+:::{.scrolling}
+<details> 
+<summary>Workflow</summary> 
+![](../images/Patches_flowchart.png){fig-align="right"} 
+</details> 
+:::
+
+[![](../images/GithubLogoT.png){height=60 fig-align='right'}](https://github.com/sagesteppe/SDM_restorations)
+
+:::
+
+## Implementation
+::: {style="float: left; width: 50%;"}
+- Crew Leads receive output vector data of patch ranks 
+  - higher priority patches darker colors  
+- Visually review data while preparing hitches  
+:::
+
+::: {style="float: right; width: 50%;"}
+![](../images/Connectivity.png){
+  height=600 
+  fig-align='right'
+}
+:::
+
+## Results
+::: {style="float: left; width: 49%;"}
+- Current hydrologic basins data set is to coarse 
+  - 400% more pops found in R1 than expected by the number of them
+  - 74% more pops found R1 then expected by area alone  
+:::
+
+::: {style="float: center; width: 2%;"}  
+:::
+
+::: {style="float: right; width: 49%;"}
+![](../images/Ranks.png){
+  height=600 
+  fig-align="center"
+}
+:::
+
+# ACKNOWLEDGEMENTS
+<br>
+<font size="9">**The Bureau of Land Management**</font>  
+<br>
+Colorado Plateau Native Plant Program  
+Great Basin Native Plant Program  
+California Native Plant Program   
+Mojave Native Plant Program  
+<br>
+<br>
+Chris Woolridge, Kristy Snyder, Peggy Olwell
+
+# CONTACT
+
+::: {style="float: left; width: 50%;"}
+
+![](../images/QRCode.png){
+  width=300
+  fig-align='center'}
+:::
+
+::: {style="float: right; width: 50%;"}
+
+![](../images/CBG_Logos/NegauneeInstitute_CBG-Logo-Vertical.png){
+  width=350
+  fig-align='center'
+}
+:::
