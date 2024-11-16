@@ -10,7 +10,7 @@ format:
     theme: black
     highlight: pygments
     preview-links: auto
-    logo: ../images/CBG_Logos/NegauneeInstitute_CBG-Logo-FlowerMark.png
+    logo: ./images/CBG_Logos/NegauneeInstitute_CBG-Logo-FlowerMark.png
     chalkboard: 
       boardmarker-width: 5
     reveal_options:
@@ -70,7 +70,7 @@ and then back to the tide pool again."*\
 :::
 
 ::: {style="float: right; width: 40%;"}
-![Johanna Steensma](../images/MesaSteensma.jpg){
+![Johanna Steensma](./images/MesaSteensma.jpg){
   height=550
   fig-align='right'
   text-align='center'
@@ -107,7 +107,7 @@ $$\text{Species (Pres.|Abs.) ~}\\ \text{geology * topography * soils * vegetatio
 :::{.scrolling}
 <details> 
 <summary>Workflow</summary>
-![](../images/SDM_flowchart.png){fig-align="right"}
+![](./images/SDM_flowchart.png){fig-align="right"}
 </details> 
 
 <details> 
@@ -179,7 +179,7 @@ $$\text{Species (Pres.|Abs.) ~}\\ \text{geology * topography * soils * vegetatio
 </font>
 </details>
 
-[![](../images/GithubLogoT.png){height=60 fig-align='right'}](https://github.com/sagesteppe/SDM_restorations)
+[![](./images/GithubLogoT.png){height=60 fig-align='right'}](https://github.com/sagesteppe/SDM_restorations)
 
 :::
 :::
@@ -204,7 +204,7 @@ The training data come from a variety of musuem and government sources.
 :::
 
 ::: {style="float: right; width: 50%;"}
-![](../images/Suitability.resized.png){
+![](./images/Suitability.resized.png){
   height=600 
   fig-align='right'
 }
@@ -212,7 +212,7 @@ The training data come from a variety of musuem and government sources.
 
 ## Results
 ::: {style="float: left; width: 49%;"}
-![](../images/Eval_metrics.png){
+![](./images/Eval_metrics.png){
   height=625 
   fig-align="center"
 }
@@ -222,7 +222,7 @@ The training data come from a variety of musuem and government sources.
 :::
 
 ::: {style="float: right; width: 49%;"}
-![](../images/leafplot-trans.png){
+![](./images/leafplot-trans.png){
   height=625
   fig-align="center"
 }
@@ -242,7 +242,7 @@ The training data come from a variety of musuem and government sources.
 :::
 
 ::: {style="float: right; width: 40%;"}
-![Katie Peel](../images/Driving.resized.png){
+![Katie Peel](./images/Driving.resized.png){
   height=550 
   fig-align='right'
   text-align='center'
@@ -276,7 +276,7 @@ $$\text{GAM(Flowering (0|1) ~} \text{ DOY *}\\ \text{GDD * VPD * BIO10 * BIO14 *
 :::{.scrolling}
 <details> 
 <summary>Workflow</summary>
-![](../images/Phenology_flowchart){fig-align="right"}
+![](./images/Phenology_flowchart){fig-align="right"}
 </details> 
 
 <details> 
@@ -311,7 +311,7 @@ $$\text{GAM(Flowering (0|1) ~} \text{ DOY *}\\ \text{GDD * VPD * BIO10 * BIO14 *
 </font>
 </details>
 
-[![](../images/GithubLogoT.png){height=60  fig-align='right'}](https://github.com/sagesteppe/SeedPhenology)
+[![](./images/GithubLogoT.png){height=60  fig-align='right'}](https://github.com/sagesteppe/SeedPhenology)
 :::
 :::
 
@@ -327,12 +327,12 @@ This year the only phenophase we modelled was flowering, but an identical approa
 :::
 
 ::: {style="float: right; width: 50%;"}
-![](../images/Phenology.png){
+![](./images/Phenology.png){
   height=200 
   fig-align="center"
 }
 
-![](../images/Flowering_spreadsheet.resized.png){
+![](./images/Flowering_spreadsheet.resized.png){
   height=325 
   fig-align="center"
 }
@@ -340,7 +340,7 @@ This year the only phenophase we modelled was flowering, but an identical approa
 
 ## Results
 :::: {.columns .v-center-container}
-![](../images/CM-Phenology-trim.png){
+![](./images/CM-Phenology-trim.png){
   height=375 
   fig-align="center"
 }
@@ -368,7 +368,7 @@ it, under it and over it."*\
 ::: 
 
 ::: {style="float: right; width: 40%;"}
-![Johanna Steensma](../images/BlackCanyonSteensma.jpg){
+![Johanna Steensma](./images/BlackCanyonSteensma.jpg){
   height=550 
   fig-align='right'
 }
@@ -426,11 +426,11 @@ In my experience most critiques of SDM's arise from the mismatch between the nom
 :::{.scrolling}
 <details> 
 <summary>Workflow</summary> 
-![](../images/Patches_flowchart.png){fig-align="right"} 
+![](./images/Patches_flowchart.png){fig-align="right"} 
 </details> 
 :::
 
-[![](../images/GithubLogoT.png){height=60 fig-align='right'}](https://github.com/sagesteppe/SDM_restorations)
+[![](./images/GithubLogoT.png){height=60 fig-align='right'}](https://github.com/sagesteppe/SDM_restorations)
 
 :::
 
@@ -442,7 +442,7 @@ In my experience most critiques of SDM's arise from the mismatch between the nom
 :::
 
 ::: {style="float: right; width: 50%;"}
-![](../images/Connectivity.png){
+![](./images/Connectivity.png){
   height=600 
   fig-align='right'
 }
@@ -459,7 +459,7 @@ In my experience most critiques of SDM's arise from the mismatch between the nom
 :::
 
 ::: {style="float: right; width: 49%;"}
-![](../images/Ranks.png){
+![](./images/Ranks.png){
   height=600 
   fig-align="center"
 }
@@ -481,14 +481,14 @@ Chris Woolridge, Kristy Snyder, Peggy Olwell
 
 ::: {style="float: left; width: 50%;"}
 
-![](../images/QRCode.png){
+![](./images/QRCode.png){
   width=300
   fig-align='center'}
 :::
 
 ::: {style="float: right; width: 50%;"}
 
-![](../images/CBG_Logos/NegauneeInstitute_CBG-Logo-Vertical.png){
+![](./images/CBG_Logos/NegauneeInstitute_CBG-Logo-Vertical.png){
   width=350
   fig-align='center'
 }
